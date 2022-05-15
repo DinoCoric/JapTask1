@@ -1,0 +1,35 @@
+<body class="page_body">
+  
+
+
+   <% if @show_categories.blank? %>
+       <div class="blog-slider new-shadow new-height">
+
+    <h2 class="title-center">There are not any recipe categories currently in the system.</h2>
+    </div>
+    <% else %>
+           <div class="blog-slider new-shadow new-height">
+           <h2 class="title-center">Categories</h2>
+<%= will_paginate @show_categories%>
+  <table class="table table-bordered table-dark">
+    <thead>
+        <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Action</th>
+        </tr>
+    </thead>
+  <tbody>
+  <% @show_categories.each do |category|%>
+    <tr>
+      <td><%= category.name%></td>
+      <td>
+        <%= link_to "Open recipes", recipes_index_path(category.id) %>
+      </td> 
+    </tr>
+  </tbody>
+    <%end%>
+</table>
+<%= will_paginate @show_categories%>
+       </div>
+<%end%>
+</body>

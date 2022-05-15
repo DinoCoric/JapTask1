@@ -1,0 +1,38 @@
+<body class="page_body">
+
+
+      <div class="blog-slider new-shadow new-height">
+
+<div class="recipe-info-container">
+    <div class="recipe-title-container">
+      <h2>Name: <%= @recipe.name %></h2>
+      <div class="recipe-description">Description: <%= @recipe.description %></div>
+      
+      <div class="recipe-description">Total cost: <%= @recipe_cost %></div>
+    </div>
+    </div>
+    <table class="table table-bordered table-dark mt-2">
+    <thead>
+        <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Measurement unit</th>
+        <th scope="col">Unit price</th>
+        <th scope="col">Unit quantity</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% @show_ingredients.each do |ingredient|%>
+      <tr>
+        <td><%= ingredient.name%></td>
+        <td><%= ingredient.measurement_unit%></td>
+        <td><%= ingredient.unit_price%></td>
+        <td><%= ingredient.unit_quantity%></td>
+      </tr>
+    </tbody>
+    <%end%>
+</table>
+    </div>
+
+
+
+</body>

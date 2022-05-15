@@ -1,0 +1,45 @@
+<body class="page_body">
+<div class="blog-slider">
+
+
+<h2 class="blog-slider__title title-center">Add new recipe</h2>
+
+<%= form_with url: create_recipes_form_path(), method: :post, model: @recipe do |form| %>
+
+<h2 class="background double">
+<span>
+    <%= form.label :name %><br />
+</span>
+</h2>
+
+ <div class="session-input-container">
+<%= form.text_field :name%>
+</div>
+<h2 class="background double">
+<span>
+    <%= form.label :description %><br />
+</span>
+</h2>
+
+ <div class="session-input-container">
+<%= form.text_field :description%>
+</div>
+<% @ingredients.each do |ingredient| %>
+    <%= form.label ingredient.name %>
+  <%= form.check_box(:recipe_ingredients, { :multiple => true }, ingredient.id, nil) %>
+  <br>
+<% end %>
+
+<div class="links-align">
+
+<div class="actions button_margin">
+    <%= form.submit "Add recipe", class:"button-29" %>
+  </div>
+  </div>
+
+<%end%>
+
+
+
+</div>
+</body>
